@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../MDB/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../MDB/css/mdb.css">
+	<link rel="stylesheet" type="text/css" href="../My sublime/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="../My sublime/Css/bootsrap1.css">
+	
+</head>
+<body>
+	<nav class="navbar bg-danger navbar-dark">
+		<a href=" " class="navbar-brand">zomato</a>
+	</nav>
+
+	<section class="mt-2 container-fluid">
+		<div class="row">
+			<div class="col">
+				<h2 class="text-danger">Add Items To Cart:-</h2>
+				<p class="lead"></p>
+			    <button class="btn btn-danger btn-md">OrderNow</button>	
+			</div>
+		</div>
+	</section>
+	<section class="mt-2 container-fluid">
+		<div class="row">
+			<div class="col">
+				<table class="table text-center">
+					<thead class="bg-danger text-white">
+						<tr>
+							<th>S.NO</th>
+							<th>Image</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th><th>Qty</th></th>
+							<th><th>Total</th></th>
+						</tr>
+						
+					</thead>
+					<tbody class="table-danger">
+						<tr>
+							<td> 1</td>
+							<td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6UC8FTjN9bCkwlp6j8C1XtCmfkVXfFt90IQ&usqp=CAU">  </td>
+							<td>Biryani</td>
+							<td>299.0</td>
+							<td id="btn-decrement"><i class="fa fa-minus-circle"></i></td>
+							<td><h6><span id="total-display"></span></h6></td>
+							<td id="btn-increment"><i class="fa fa-plus-circle" ></i></td>
+							<td><h6><span id="total-price"></span></h6></td>
+							
+						</tr>
+						<tr>
+							<td> 2 </td>
+							<td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT04VwFUITW1nXYVhDF9H8z8-FvCm9t_JN_Lg&usqp=CAU"></td>
+							<td>Chicken curry</td>
+							<td>199.0</td>
+							<td id="btn2-decrement"><i class="fa fa-minus-circle"></i></td>
+							<td><h6><span id="total2-display"></span></h6></td>
+							<td id="btn2-increment"><i class="fa fa-plus-circle" ></i></td>
+							<td><h6><span id="total-price1"></span></h6></td>
+						</tr>
+						<tr>
+							<td> 3 </td>
+							<td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Aqy7kjjQbxmABSduzIg3uyh_TOOS0_GPGA&usqp=CAU">  </td>
+							<td>pizza</td>
+							<td>399.0</td>
+							<td id="btn3-decrement"><i class="fa fa-minus-circle"></i></td>
+							<td><h6><span id="total3-display"></span></h2></td>
+							<td id="btn3-increment"><i class="fa fa-plus-circle" ></i></td>
+							<td><h6><span id="total-price3"></span></h6></td>
+						</tr>
+						<tr>
+							<td> 4 </td>
+							<td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfViJBJkWV0JH3cFmspynDhVwYuzvKEFAGRw&usqp=CAU">  </td>
+							<td>panner masal</td>
+							<td>199.0</td>
+							<td id="btn4-decrement"><i class="fa fa-minus-circle"></i></td>
+							<td><h6><span id="total4-display"></span></h2></td>
+							<td id="btn4-increment"><i class="fa fa-plus-circle" ></i></td>
+							<td><h6><span id="total-price4"></span></h6></td>
+						</tr>
+						<tr>
+							<td> 5 </td>
+							<td><img src="https://5.imimg.com/data5/OW/WE/MY-30494656/amul-realmilk-ice-cream-500x500.jpg">  </td>
+							<td>Ice-cream</td>
+							<td>149.0</td>
+							<td id="btn5-decrement"><i class="fa fa-minus-circle"></td>
+							<td><h6><span id="total5-display"></span></h2></td>
+							<td id="btn5-increment"><i class="fa fa-plus-circle" ></i></td>
+							<td><h6><span id="total-price5"></span></h6></td>
+						</tr>
+					</tbody>
+					
+				</table>
+				
+			</div>
+			
+		</div>
+		
+	</section>
+
+<script type="text/javascript">
+	let btnincrement=document.getElementById("btn-increment");
+	let btndecrement=document.getElementById("btn-decrement");
+	let totaldisplay=document.getElementById("total-display");
+	let totalprice=document.getElementById("total-price");
+	let btn2increment=document.getElementById("btn2-increment");
+	let btn2decrement=document.getElementById("btn2-decrement");
+	let total2display=document.getElementById("total2-display");
+	let totalprice1=document.getElementById("total-price1");
+	let btn3increment=document.getElementById("btn3-increment");
+	let btn3decrement=document.getElementById("btn3-decrement");
+	let total3display=document.getElementById("total3-display");
+	let totalprice3=document.getElementById("total-price3");
+	let btn4increment=document.getElementById("btn4-increment");
+	let btn4decrement=document.getElementById("btn4-decrement");
+	let total4display=document.getElementById("total4-display");
+	let totalprice4=document.getElementById("total-price4");
+	let btn5increment=document.getElementById("btn5-increment");
+	let btn5decrement=document.getElementById("btn5-decrement");
+	let total5display=document.getElementById("total5-display");
+	let totalprice5=document.getElementById("total-price5");
+
+	var i=localStorage.getItem('i')?localStorage.getItem('i'):0;
+	var j=localStorage.getItem('j')?localStorage.getItem('j'):0;
+	var k=localStorage.getItem('k')?localStorage.getItem('k'):0;
+	var l=localStorage.getItem('l')?localStorage.getItem('l'):0;
+	var m=localStorage.getItem('m')?localStorage.getItem('m'):0;
+	var t1=299;
+	var t2=199;
+	var t3=399;
+	var t4=199;
+	var t5=149;
+
+		btnincrement.addEventListener('click',function()
+		{
+		       i++;
+		       localStorage.setItem('i',i);
+               totaldisplay.innerText=i;
+               totalprice.innerText=t1*i;
+
+		}
+			);
+		btndecrement.addEventListener('click',function()
+		{
+			if(i>0)
+			{
+               i--;
+               localStorage.setItem('i',i);
+               totaldisplay.innerText=localStorage.getItem('i');
+               totalprice.innerText=t1*i;
+            }
+           else
+           {
+           	  i=1;
+           	  totaldisplay.innerText=localStorage.getItem('i');
+           }
+              
+		});
+		btn2increment.addEventListener('click',function()
+		{
+               j++;
+               localStorage.setItem('j',j);
+               total2display.innerText=j;
+               totalprice1.innerText=t2*j;
+               
+
+		}
+			);
+		btn2decrement.addEventListener('click',function()
+		{    
+		    if(j>0)
+            {
+               j--;
+               localStorage.setItem('j',j);
+               total2display.innerText=localStorage.getItem('j');
+               totalprice1.innerText=t2*j;
+            }
+            else
+           {
+           	  j=1;
+           	  total2display.innerText=localStorage.getItem('j');
+           }
+              
+		});
+		btn3increment.addEventListener('click',function()
+		{
+               k++;
+               localStorage.setItem('k',k);
+               total3display.innerText=k;
+               totalprice3.innerText=t3*k;
+               
+
+		}
+			);
+		btn3decrement.addEventListener('click',function()
+		{
+               if(k>0)
+               {
+               k--;
+               localStorage.setItem('k',k)
+               total3display.innerText=localStorage.getItem('k');
+               totalprice3.innerText=t3*k;
+               }
+               else
+               {
+               	k=1;
+               	total3display.innerText=localStorage.getItem('k');
+               }
+
+              
+		});
+		btn4increment.addEventListener('click',function()
+		{
+               l++;
+               localStorage.setItem('l',l);
+               total4display.innerText=l;
+               totalprice4.innerText=t4*l;
+               
+
+		}
+			);
+		btn4decrement.addEventListener('click',function()
+		{
+               if(l>0)
+               	{
+                l--;
+                localStorage.setItem('l',l);
+                total4display.innerText=localStorage.getItem('l');
+                totalprice4.innerText=t4*l;
+                }
+                else
+                {
+                	l=1;
+                	total4display.innerText=localStorage.getItem('l');
+                }
+		});
+		btn5increment.addEventListener('click',function()
+		{
+               m++;
+                localStorage.setItem('m',m);
+                total5display.innerText=m;
+                totalprice5.innerText=t5*m;
+               
+
+		}
+			);
+		btn5decrement.addEventListener('click',function()
+		{
+               if(m>0)
+               	{
+                m--;
+                localStorage.setItem('m',m);
+               	total5display.innerText=localStorage.getItem('m');
+                totalprice5.innerText=t5*m;
+                }
+                else
+                { 
+                	m=1;
+                	total5display.innerText=localStorage.getItem('m');
+                }
+
+              
+		});
+</script>
+</body>
+</html>
