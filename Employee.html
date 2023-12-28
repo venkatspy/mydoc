@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employees table</title>
+	<link rel="stylesheet" type="text/css" href="../MDB/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../My sublime/Css/bootsrap1.css">
+</head>
+<body>
+	<div class="container-fluid mt-1">
+		<div class="row">
+			<div class="col-md-4 ">
+				<button class="bg-danger btn-block" id="Male">
+					<h4 style="color: white;">Male Employees</h4>
+				</button>
+			</div>
+			<div class="col-md-4  ">
+				<button class="bg-danger btn-block " id="Female">
+					<h4 style="color: white;">Female Employees</h4>
+				</button>
+			</div>
+			<div class="col-md-4 ">
+			    <button class="bg-danger btn-block" id="All">
+					<h4 style="color: white;">All Employees</h4>
+				</button>
+			</div>
+		</div>
+		<div class="input-group mt-3">
+			<input type="Search" name="Search" placeholder="Search here" class="form-control"id="Search">				
+		</div>
+		<div>
+			<table class="table"> 
+		            <thead>
+		              <tr>
+		                 <th>empId</th>
+		                 <th>empName</th>
+		                 <th>gender</th>
+		                 <th>Active</th>
+		                 <th>Age</th>
+		              </tr>
+		            </thead>
+		            <tbody  id="display">
+		            </tbody>
+		    </table>
+			
+		</div>
+			
+		
+	</div>
+	<script type="text/javascript">
+		let Employees=[ {empId:"Jsp101",empName:"Sainath",gender:"Male",Active:"True",Age:"23"},
+			            {empId:"Jsp102",empName:"Suresh",gender:"Male",Active:"True",Age:"22"},
+			            {empId:"Jsp103",empName:"Nithin",gender:"Male",Active:"True",Age:"25"},
+			            {empId:"Jsp104",empName:"sarah",gender:"Female",Active:"True",Age:"26"},
+			           ];
+		let AllEmployees=document.getElementById('All');
+		let maleemployees=document.getElementById('Male');
+		let femaleemployees=document.getElementById('Female');
+		function displayEmps(emps)
+		{
+			let length=emps.length
+			let str=``;
+			if(length!==0)
+			{
+				for(let emp of emps)
+				{
+					str=str+`<tr>
+					        <td>${emp.empId}</td>
+					        <td>${emp.empName}</td>
+					        <td>${emp.gender}</td>
+					        <td>${emp.Active}</td>
+					        <td>${emp.Age}</td>
+					       </tr>`;
+				}
+			}
+			let displayTag=document.getElementById('display');
+		    displayTag.innerHTML=str;
+		};
+		AllEmployees.addEventListener('click',()=>
+		{
+			displayEmps(Employees);
+		});
+		let Male=Employees.filter((emp)=>
+			{
+			if(emp.gender==='Male')
+			{
+                    return emp;
+			}
+		});
+        maleemployees.addEventListener('click',()=>
+        {
+        	displayEmps(Male);
+        });
+        let Female=Employees.filter((emp)=>
+			{
+			if(emp.gender==='Female')
+			{
+                    return emp;
+			}
+		});
+        femaleemployees.addEventListener('click',()=>
+        {
+        	displayEmps(Female);
+        });
+        let search=document.getElementById('Search');
+        search.addEventListener('keyup',()=>
+        {
+        	let entervalue=search.value;
+        	let enames=searchEmpsData(entervalue,Employees);
+        	displayEmps(enames);
+        });
+
+        function searchEmpsData(val,emp)
+        {
+        	val=val.toUpperCase().trim();
+        	let filteredEmps=[];
+        	for(let emps of emp)
+        	{
+        		let origname=emps.empName.toUpperCase().trim()
+        		if(origname.includes(val))
+        		{
+        			filteredEmps.push(emps);
+        		}
+        	}
+        	return filteredEmps;
+        }
+
+		
+	</script>
+
+</body>
+</html>
